@@ -1,4 +1,8 @@
-﻿using System.Windows;
+// =======================================================
+// Developer: Emad Adel
+// Source Code https://github.com/emadadeldev/Redemption
+// =======================================================
+using System.Windows;
 using System;
 using System.Windows.Controls;
 
@@ -35,7 +39,7 @@ namespace Redemption_Team.page
                         return;
                     }
 
-                    //InstallPathTextBox.Text = selectedPath;
+                    InstallPathTextBox.Text = selectedPath;
                 }
             }
         }
