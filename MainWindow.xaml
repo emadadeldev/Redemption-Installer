@@ -72,24 +72,19 @@
             </StackPanel>
 
             <!-- Bottom -->
-            <Grid Grid.Row="1" Margin="15,0,0,15">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Button Grid.Column="0" Click="Button_Options_Click"
-                        Content="خيارات"
+                <Grid Grid.Row="2" Margin="10">
+                    <Button  Click="Button_Options_Click"
+                        Content="التالي"
                         Width="100"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
                         Height="35"/>
-            </Grid>
-
+                </Grid>
         </Grid>
     </Grid>
 
         <Border x:Name="options"
-       Panel.ZIndex="10"
+       Panel.ZIndex="1"
        Visibility="Collapsed">
             <page:InstallerControl />
         </Border>
