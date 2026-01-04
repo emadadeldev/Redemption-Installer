@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Redemption_Team.Properties {
+namespace EmadAdel.Redemption_Team.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

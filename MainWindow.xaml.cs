@@ -21,7 +21,7 @@ using System.Net.Http;
 using System.IO.Compression;
 using System.Windows.Forms;
 
-namespace Redemption_Team
+namespace EmadAdel.Redemption_Team
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
