@@ -1,4 +1,8 @@
-﻿using System;
+// =======================================================
+// Developer: Emad Adel
+// Source Code https://github.com/emadadeldev/Redemption
+// =======================================================
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +37,21 @@ namespace Redemption_Team
         {
             MainContent.Visibility = Visibility.Collapsed;
             options.Visibility = Visibility.Visible;
+        }
+
+        private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = System.Windows.MessageBox.Show(
+                "هل أنت متأكد من الخروج؟",
+                "تأكيد",                 
+                MessageBoxButton.YesNo,    
+                MessageBoxImage.Question
+            );
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }
