@@ -8,7 +8,7 @@
              d:DesignWidth="800"
              Background="Transparent">
 
-    <Grid Margin="30">
+    <Grid Margin="30" Background="Transparent">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,8 +16,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="30" HorizontalAlignment="Left">
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="30" Width="500" HorizontalAlignment="Left">
 
+            <!-- Path Block -->
             <TextBlock Text="مسار اللعبة"
                        FontSize="15"
                        FontWeight="SemiBold"
@@ -42,18 +43,22 @@
                         BorderThickness="0"/>
             </DockPanel>
 
+            <!--Tip Text-->
             <TextBlock Text="Red Dead Redemption 2 يرجى اختيار المسار الصحيح للعبة"
                        Foreground="#AAAAAA"
                        FontSize="13"
                        Margin="0,5,0,0"/>
         </StackPanel>
-
-        <Button Content="تثبيت"
-                Width="120"
-                Height="35"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Grid.Row="3"
-                BorderThickness="0"/>
+        
+        <!-- Bottom -->
+        <Grid Grid.Row="2" Margin="10">
+            <Button  Click="Button_Options_Click"
+            Content="تثبيت"
+            Width="100"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right"
+            Height="35"/>
+        </Grid>
+        
     </Grid>
 </UserControl>
