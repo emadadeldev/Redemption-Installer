@@ -1,0 +1,99 @@
+﻿<Window x:Class="Redemption_Team.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:page="clr-namespace:Redemption_Team.page"
+        WindowState="Normal"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="برنامج تثبيت التعريب"
+        Height="450"
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="Black">
+
+    <Grid>
+
+        <!-- Background Image -->
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Assets/wall.jpg"
+                        Stretch="Fill"
+                        Opacity="0.4"/>
+        </Grid.Background>
+
+        <!-- Main -->
+        <Grid Visibility="Visible" x:Name="MainContent">
+            
+        <Grid >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Close -->
+            <TextBlock Text="🗙"
+                       Grid.Row="0"
+                       Margin="0,8,20,0"
+                       Cursor="Hand"
+                       HorizontalAlignment="Right"
+                       FontSize="25"
+                       Foreground="#FFFF5B5B"/>
+
+            <!-- Welcome -->
+            <StackPanel Grid.Row="1">
+
+                <Image Source="Assets/logo.png"
+                       Width="300"/>
+
+                <TextBlock Text="المساهمين في التعريب"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="10"/>
+
+                <ScrollViewer Height="200" Margin="0,0,1,0">
+                    <StackPanel>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock Text="اسم عشوائي" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                </ScrollViewer>
+
+            </StackPanel>
+
+            <!-- Bottom -->
+            <Grid Grid.Row="2" Margin="15,0,0,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Click="Button_Options_Click"
+                        Content="خيارات"
+                        Width="100"
+                        Height="35"/>
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+        <Border x:Name="options"
+       Panel.ZIndex="10"
+       Visibility="Collapsed">
+            <page:InstallerControl />
+        </Border>
+
+    </Grid>
+
+</Window>
