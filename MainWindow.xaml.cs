@@ -39,7 +39,7 @@ namespace Redemption_Team
             options.Visibility = Visibility.Visible;
         }
 
-        private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void CloseBtn(object sender, MouseButtonEventArgs e)
         {
             MessageBoxResult result = System.Windows.MessageBox.Show(
                 "هل أنت متأكد من الخروج؟",
