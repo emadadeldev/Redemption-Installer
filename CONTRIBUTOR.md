@@ -6,7 +6,7 @@ Idre2d
 y4x5lol
 Karar.iraq
 Mska Flash 
-برمجة وتطوير: عماد عادل (Batman)
+برمجة: عماد عادل (Batman)
 تصميم الشعار: αпɢεʟα ✿
 RAGER
 KOBY
