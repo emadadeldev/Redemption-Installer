@@ -29,7 +29,7 @@
             <DockPanel LastChildFill="True">
 
                 <TextBox x:Name="InstallPathTextBox"
-                         Text="C:\Program Files\Rockstar Games\Red Dead Redemption 2"
+                         Text="E:\Red Dead Redemption 2"
                          Height="32"
                          FontSize="14"
                          VerticalContentAlignment="Center"
