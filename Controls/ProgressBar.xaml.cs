@@ -2,20 +2,20 @@
 // Developer: Emad Adel
 // Source Code https://github.com/emadadeldev/Redemption
 // =======================================================
+
 using System;
-using System.Net;
+using System.IO;
+using System.IO.Compression;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.IO;
-using System.IO.Compression;
-
 
 namespace EmadAdel.Redemption_Team.Controls
 {
     public partial class ProgressBar : UserControl
     {
-        private WebClient webClient;
         private bool isDownloading = false;
         private string zipFilePath;
 
@@ -32,40 +32,85 @@ namespace EmadAdel.Redemption_Team.Controls
             prog.Value = 0;
         }
 
-        public async void DownloadFile(string savePath)
+        public async void StartDownload(string savePath)
         {
             if (isDownloading) return;
 
             string url = "https://github.com/emadadeldev/RDR2AR/archive/refs/heads/main.zip";
-
             string fileName = System.IO.Path.GetFileName(new Uri(url).LocalPath);
-
             zipFilePath = System.IO.Path.Combine(savePath, fileName);
 
             try
             {
                 isDownloading = true;
                 prog.Value = 0;
+                loadingText.Text = "..جاري تنزيل أحدث نسخة من التعريب";
 
-                using (webClient = new WebClient())
-                {
-                    webClient.DownloadProgressChanged += WebClient_DownloadProgressChanged;
-                    webClient.DownloadFileCompleted += WebClient_DownloadFileCompleted;
+                await DownloadFileAsync(url, zipFilePath);
 
-                    await webClient.DownloadFileTaskAsync(new Uri(url), zipFilePath);
-                }
+                loadingText.Text = "...جاري تثبيت التعريب";
+
+                string extractPath = System.IO.Path.GetDirectoryName(zipFilePath);
+                ExtractZipWithOverride(zipFilePath, extractPath);
+
+                if (File.Exists(zipFilePath))
+                    File.Delete(zipFilePath);
+
+                Dispatcher.Invoke(() => prog.Value = 100);
+                loadingText.Text = ".تم التثبيت بنجاح";
             }
             catch (Exception ex)
             {
-                isDownloading = false;
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                isDownloading = false;
+            }
         }
-        private void WebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            double percentage = e.ProgressPercentage;
 
-            prog.Value = percentage;
+        private async Task DownloadFileAsync(string url, string destination)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(
+                    "RDR2AR-Updater/1.0 (+https://github.com/emadadeldev)"
+                );
+
+                using (HttpResponseMessage response =
+                    await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead))
+                {
+                    response.EnsureSuccessStatusCode();
+
+                    long totalBytes = response.Content.Headers.ContentLength ?? -1L;
+                    long totalRead = 0L;
+
+                    byte[] buffer = new byte[81920];
+
+                    using (Stream contentStream = await response.Content.ReadAsStreamAsync())
+                    using (FileStream fileStream = new FileStream(
+                        destination,
+                        FileMode.Create,
+                        FileAccess.Write,
+                        FileShare.None))
+                    {
+                        int bytesRead;
+                        while ((bytesRead = await contentStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                        {
+                            await fileStream.WriteAsync(buffer, 0, bytesRead);
+                            totalRead += bytesRead;
+
+                            if (totalBytes > 0)
+                            {
+                                double progress = ((double)totalRead / totalBytes) * 100.0;
+                                if (progress > 100) progress = 100;
+                                int displayProgress = (int)Math.Round(progress);
+                                Dispatcher.Invoke(() => prog.Value = displayProgress);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private void ExtractZipWithOverride(string zipPath, string extractPath)
@@ -75,7 +120,6 @@ namespace EmadAdel.Redemption_Team.Controls
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
                     string relativePath = entry.FullName;
-
                     int index = relativePath.IndexOf('/');
                     if (index >= 0)
                         relativePath = relativePath.Substring(index + 1);
@@ -93,70 +137,28 @@ namespace EmadAdel.Redemption_Team.Controls
 
                     Directory.CreateDirectory(System.IO.Path.GetDirectoryName(fullPath));
 
+                    if (File.Exists(fullPath))
+                        File.SetAttributes(fullPath, FileAttributes.Normal);
+
                     entry.ExtractToFile(fullPath, true);
                 }
             }
         }
 
-        private void WebClient_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            isDownloading = false;
-
-            if (e.Error != null)
-            {
-                loadingText.Text = "❌ خطأ في التحميل";
-                return;
-            }
-
-            try
-            {
-                prog.Value = 100;
-                loadingText.Text = "...جاري تثبيت التعريب";
-
-                string extractPath = System.IO.Path.GetDirectoryName(zipFilePath);
-
-                ExtractZipWithOverride(zipFilePath, extractPath);
-
-                loadingText.Text = ".تم التثبيت بنجاح";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        public void StartDownload(string save)
-        {
-            loadingText.Text = "..جاري تنزيل احدث نسخة من التعريب";
-            DownloadFile(save);
-        }
-
         public void StopDownload()
         {
-            if (webClient != null && webClient.IsBusy)
-            {
-                webClient.CancelAsync();
-                isDownloading = false;
-            }
-        }
-
-        public void StopLoading()
-        {
-            StopDownload();
+            isDownloading = false;
         }
 
         public void GoToValue(double value)
         {
             if (value >= 0 && value <= 100)
-            {
                 prog.Value = value;
-            }
         }
 
         private void prog_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //StartDownload();
+            // debug
         }
     }
 }
-
