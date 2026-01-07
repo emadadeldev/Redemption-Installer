@@ -41,7 +41,7 @@
             </Grid.RowDefinitions>
 
             <!-- Welcome -->
-            <StackPanel Grid.Row="0" Margin="0,20,0,0">
+            <StackPanel Grid.Row="0">
 
                 <Image Source="Assets/logo.png"
                        Width="300"/>
