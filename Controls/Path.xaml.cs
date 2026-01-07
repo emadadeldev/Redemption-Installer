@@ -5,7 +5,6 @@
 using System.Windows;
 using System;
 using System.Windows.Controls;
-using EmadAdel.Redemption_Team.Controls;
 
 namespace EmadAdel.Redemption_Team.Controls
 {
@@ -45,11 +44,12 @@ namespace EmadAdel.Redemption_Team.Controls
 
         private void InstallBtn_Click(object sender, RoutedEventArgs e)
         {
+            // اخفاء الازرار
             PathContent.Visibility = Visibility.Collapsed;
             installBtn.Visibility = Visibility.Collapsed;
+
+            // بدء التحميل و اظهار النسبة
             ProgressBar.Visibility = Visibility.Visible;
-
-
             DownloadProgressBar.StartDownload(InstallPathTextBox.Text);
         }
     }
