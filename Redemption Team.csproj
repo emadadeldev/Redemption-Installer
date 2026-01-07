@@ -91,6 +91,7 @@
     <Compile Include="Controls\Path.xaml.cs">
       <DependentUpon>Path.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayMusic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\American Reprise.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
