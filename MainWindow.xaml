@@ -12,7 +12,7 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         Title="MainWindow"
-        Height="500" Width="900">
+        Height="466" Width="800">
 
     <WindowChrome.WindowChrome>
         <WindowChrome
@@ -22,46 +22,46 @@
             UseAeroCaptionButtons="False"/>
     </WindowChrome.WindowChrome>
 
-    <Border BorderThickness="2" CornerRadius="25" BorderBrush="Red">
+    <Border BorderThickness="2" CornerRadius="0" BorderBrush="Red">
 
         <Border.Background>
             <ImageBrush ImageSource="Assets/wall.png" Stretch="Fill"/>
         </Border.Background>
-        
+
         <Grid>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto" MinWidth="468"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Button Content="×" 
             Click="CloseBtn"
-            Grid.Row="0"
             Grid.Column="1"
             Cursor="Hand"
             Foreground="Red"
             FontSize="40"
-            Margin="0 0 25 0"
+            Margin="0,0,25,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-        />
-        
+            VerticalAlignment="Center" Height="75" Width="22"/>
+
             <!--Content-->
-            <ScrollViewer Height="auto" Width="auto" Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                <controls:names x:Name="names" Visibility="Visible" />
+            <ScrollViewer Height="auto" Width="auto" Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,0,0,83" Grid.RowSpan="2">
+                <controls:names x:Name="names" Visibility="Hidden" />
             </ScrollViewer>
             <!--Content-->
 
             <Grid Grid.Row="2" Grid.Column="1">
                 <Button Content="التالي" Height="auto" Margin="20" HorizontalAlignment="Right" Width="130"/>
             </Grid>
+            
+            
 
         </Grid>
     </Border>
