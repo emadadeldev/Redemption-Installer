@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Installer.Controls.names"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+
+    <Grid>
+            <StackPanel HorizontalAlignment="Center" Width="Auto">
+
+                <TextBlock Style="{StaticResource title}"  Text="Redemption Team"
+                           FontSize="19" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="RAGER" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="AbuLafi" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="KOBY" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Haidara" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Karar.iraq" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Mska Flash" TextAlignment="Center"/>
+
+                <TextBlock Style="{StaticResource title}" Text="برمجة و تعديل محرك اللعبة"
+                           FontSize="19" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="عماد عادل" TextAlignment="Center"/>
+
+                <TextBlock Style="{StaticResource title}" Text="جرافيك المثبت و برمجة"
+                           FontSize="19" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="αпɢεʟα" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="عماد عادل" TextAlignment="Center"/>
+
+                <TextBlock Style="{StaticResource title}" Text="تجربة التعريب"
+                           FontSize="19" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="AZMORAY" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="NAIF" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="HuSYnXD" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Juhayman11" TextAlignment="Center"/>
+
+                <TextBlock Style="{StaticResource title}" Text="شكر خاص للأعضاء السابقين"
+                           FontSize="19" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Just_mary" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Rimor" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="JinxXCX" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Nadin" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Mohamed Ashour" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Amr Abed" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Oufra" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="BIGAZK" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Reda23" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Ahmed Alhaidary" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Hussein Ali" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="mohammed km" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="yousef alhmdany" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="adam abs Ahmed Halawa" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Ahmed Zahran" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="ali altarhone Ali SwordCool" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Amer Abduallh" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="amr abed" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Claire2042" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="REDA GAMES" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Majed Abdullah" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Majed AL-Qahtani" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Mousa" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Omar Alghamdi" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Saad Shubber" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Tahar Jaafer" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="AhmedZezo" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="yazan qu" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="Ashen_One188" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="رجل بدولة خاصة" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource names}" Text="أيوب عبدالسلام" TextAlignment="Center"/>
+
+            </StackPanel>
+    </Grid>
+</UserControl>

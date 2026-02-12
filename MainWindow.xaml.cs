@@ -1,88 +1,38 @@
-// =======================================================
-// Developer: Emad Adel
-// Source Code https://github.com/emadadeldev/Redemption
-// =======================================================
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
-using System.Net.Http;
-using EmadAdel.Redemption_Team.Music;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace EmadAdel.Redemption_Team
+namespace Installer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
-            //LoadContributors();
         }
 
-        public void SetContributors(List<string> contributors)
-        {
-            if (contributors != null && contributors.Count > 0)
-            {
-                ContributorsList.ItemsSource = contributors;
-                Contributor_Text.Visibility = Visibility.Collapsed;
-                Nextbtn.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                Contributor_Text.Text = "❌ لم يتم تحميل المساهمين";
-            }
-        }
-
-        public async void LoadContributors()
-        {
-            try
-            {
-                string url = "https://raw.githubusercontent.com/emadadeldev/Redemption/refs/heads/main/CONTRIBUTOR.md";
-
-                using (HttpClient client = new HttpClient())
-                {
-                    string content = await client.GetStringAsync(url);
-
-                    var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-                    List<string> contributors = new List<string>();
-                    foreach (var line in lines)
-                    {
-                        string trimmed = line.Trim();
-                        if (!string.IsNullOrWhiteSpace(trimmed))
-                            contributors.Add(trimmed);
-                    }
-
-                    ContributorsList.ItemsSource = contributors;
-                }
-
-                Contributor_Text.Visibility = Visibility.Collapsed;
-                Nextbtn.Visibility = Visibility.Visible;
-            }
-            catch (Exception ex)
-            {
-                Contributor_Text.Text = "❌ فشل تحميل المساهمين";
-            }
-        }
-
-        private void Button_Options_Click(object sender, RoutedEventArgs e)
-        {
-            MainContent.Visibility = Visibility.Collapsed;
-            options.Visibility = Visibility.Visible;
-        }
-
-        private void CloseBtn(object sender, MouseButtonEventArgs e)
+        private void CloseBtn(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = System.Windows.MessageBox.Show(
-                "هل أنت متأكد من الخروج؟",
-                "تأكيد",                 
-                MessageBoxButton.YesNo,    
-                MessageBoxImage.Question
-            );
+               "هل أنت متأكد من الخروج؟",
+               "تأكيد",
+               MessageBoxButton.YesNo,
+               MessageBoxImage.Question
+           );
 
             if (result == MessageBoxResult.Yes)
             {
